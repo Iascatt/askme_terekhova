@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sticky Footer Navbar Template · Bootstrap v5.2</title>
+
+
+<link href="../static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/style.css" rel="stylesheet">
+  </head>
+  <body class="d-flex flex-column h-100">
+
+<header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">AskPupkin</a>
+      <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit" >ASK!</button>
+      </form>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+<!--
+      <div class="col-md-3 text-end align-content-md-end">
+        <button type="button" class="btn btn-outline-primary me-2">Login</button>
+        <button type="button" class="btn btn-primary">Sign-up</button>
+      </div>
+ -->
+
+      <div class="userblock-authorized">
+          <div class="row">
+            <div class="col-4">
+              <div class="user-avatar">
+                <img src="../static/img/avatar-4.jfif" alt="avatar-4"/>
+              </div>
+            </div>
+
+            <div class="col-8">
+              <h6>Dr. Pepper</h6>
+              <div class="row">
+                <div class="col-6">
+                  <a href="">log out</a>
+                </div>
+                <div class="col-6">
+                  <a href="settings.html">settings</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-8">
+        <div class="question">
+          <div class="row">
+            <div class="col-2">
+              <div class="avatar">
+                <img src="../static/img/avatar-1.jfif" alt="avatar-1"/>
+              </div>
+
+              <div class="js-voting-container d-flex jc-center fd-column ai-stretch gs4 fc-black-200">
+                  <div class="js-vote-count flex--item d-flex fd-column ai-center fc-black-500 fs-title"
+                       itemprop="upvoteCount"
+                       data-value="0"
+                  >
+                      0
+                  </div>
+                  <button class="js-vote-up-btn"
+                          data-controller="s-tooltip"
+                          data-s-tooltip-placement="right"
+                          title="This question shows research effort; it is useful and clear"
+                          aria-pressed="false"
+                          aria-label="Up vote"
+                          data-selected-classes="fc-theme-primary"
+                          data-unselected-classes="">
+                      <svg aria-hidden="true" class="svg-icon iconArrowUpLg" width="18" height="18" viewBox="0 0 19 10">
+                        <path d="M1 12h19L9 2 1 12Z"/></svg>
+                  </button>
+
+                  <button class="js-vote-down-btn"
+                          data-controller="s-tooltip"
+                          data-s-tooltip-placement="right"
+                          title="This question does not show any research effort; it is unclear or not useful"
+                          aria-pressed="false"
+                          aria-label="Down vote"
+                          data-selected-classes="fc-theme-primary"
+                          data-unselected-classes="">
+                      <svg aria-hidden="true" class="svg-icon iconArrowDownLg" width="18" height="18" viewBox="0 0 19 10">
+                        <path d="M1 3h19L9 13 1 3Z"/></svg>
+                  </button>
+
+              </div>
+            </div>
+            <div class="col-10">
+              <h2 class="question-title">Question 1</h2>
+              <div class="question-text">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dolorem eveniet magni officiis perspiciatis? Dolores ducimus enim in laboriosam laudantium magnam nesciunt non nostrum quaerat quasi quisquam sint voluptatem, voluptatibus. Ad commodi, delectus eligendi incidunt inventore laborum praesentium quaerat ullam?
+              </div>
+                <hr>
+                tags:
+                  <a href="">python</a>,
+                  <a href="">vk</a>
+            </div>
+
+          </div>
+        </div>
+        <hr>
+        <div class="answer">
+          <div class="row">
+            <div class="col-2">
+              <div class="avatar">
+                <img src="../static/img/avatar-4.jfif" alt="avatar-4"/>
+              </div>
+
+              <div class="js-voting-container d-flex jc-center fd-column ai-stretch gs4 fc-black-200">
+                  <div class="js-vote-count flex--item d-flex fd-column ai-center fc-black-500 fs-title"
+                       itemprop="upvoteCount"
+                       data-value="0"
+                  >
+                      0
+                  </div>
+                  <button class="js-vote-up-btn"
+                          data-controller="s-tooltip"
+                          data-s-tooltip-placement="right"
+                          title="This question shows research effort; it is useful and clear"
+                          aria-pressed="false"
+                          aria-label="Up vote"
+                          data-selected-classes="fc-theme-primary"
+                          data-unselected-classes="">
+                      <svg aria-hidden="true" class="svg-icon iconArrowUpLg" width="18" height="18" viewBox="0 0 19 10">
+                        <path d="M1 12h19L9 2 1 12Z"/></svg>
+                  </button>
+
+                  <button class="js-vote-down-btn"
+                          data-controller="s-tooltip"
+                          data-s-tooltip-placement="right"
+                          title="This question does not show any research effort; it is unclear or not useful"
+                          aria-pressed="false"
+                          aria-label="Down vote"
+                          data-selected-classes="fc-theme-primary"
+                          data-unselected-classes="">
+                      <svg aria-hidden="true" class="svg-icon iconArrowDownLg" width="18" height="18" viewBox="0 0 19 10">
+                        <path d="M1 3h19L9 13 1 3Z"/></svg>
+                  </button>
+
+              </div>
+            </div>
+            <div class="col-10">
+              <div class="answer-text">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquid, aperiam consectetur ipsa odio quaerat quisquam quos soluta.
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+                  <label class="form-check-label" for="flexCheckDefault1">
+                    Correct!
+                  </label>
+                </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="answer">
+          <div class="row">
+            <div class="col-2">
+              <div class="avatar">
+                <img src="../static/img/avatar-2.jfif" alt="avatar-2"/>
+              </div>
+
+              <div class="js-voting-container d-flex jc-center fd-column ai-stretch gs4 fc-black-200">
+                  <div class="js-vote-count flex--item d-flex fd-column ai-center fc-black-500 fs-title"
+                       itemprop="upvoteCount"
+                       data-value="0"
+                  >
+                      0
+                  </div>
+                  <button class="js-vote-up-btn"
+                          data-controller="s-tooltip"
+                          data-s-tooltip-placement="right"
+                          title="This question shows research effort; it is useful and clear"
+                          aria-pressed="false"
+                          aria-label="Up vote"
+                          data-selected-classes="fc-theme-primary"
+                          data-unselected-classes="">
+                      <svg aria-hidden="true" class="svg-icon iconArrowUpLg" width="18" height="18" viewBox="0 0 19 10">
+                        <path d="M1 12h19L9 2 1 12Z"/></svg>
+                  </button>
+
+                  <button class="js-vote-down-btn"
+                          data-controller="s-tooltip"
+                          data-s-tooltip-placement="right"
+                          title="This question does not show any research effort; it is unclear or not useful"
+                          aria-pressed="false"
+                          aria-label="Down vote"
+                          data-selected-classes="fc-theme-primary"
+                          data-unselected-classes="">
+                      <svg aria-hidden="true" class="svg-icon iconArrowDownLg" width="18" height="18" viewBox="0 0 19 10">
+                        <path d="M1 3h19L9 13 1 3Z"/></svg>
+                  </button>
+
+              </div>
+            </div>
+            <div class="col-10">
+              <div class="answer-text">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa distinctio impedit itaque sequi totam?              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                  <label class="form-check-label" for="flexCheckDefault2">
+                    Correct!
+                  </label>
+                </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="answer">
+          <div class="row">
+            <div class="col-2">
+              <div class="avatar">
+                <img src="../static/img/avatar-2.jfif" alt="avatar-2"/>
+              </div>
+
+              <div class="js-voting-container d-flex jc-center fd-column ai-stretch gs4 fc-black-200">
+                  <div class="js-vote-count flex--item d-flex fd-column ai-center fc-black-500 fs-title"
+                       itemprop="upvoteCount"
+                       data-value="0"
+                  >
+                      0
+                  </div>
+                  <button class="js-vote-up-btn"
+                          data-controller="s-tooltip"
+                          data-s-tooltip-placement="right"
+                          title="This question shows research effort; it is useful and clear"
+                          aria-pressed="false"
+                          aria-label="Up vote"
+                          data-selected-classes="fc-theme-primary"
+                          data-unselected-classes="">
+                      <svg aria-hidden="true" class="svg-icon iconArrowUpLg" width="18" height="18" viewBox="0 0 19 10">
+                        <path d="M1 12h19L9 2 1 12Z"/></svg>
+                  </button>
+
+                  <button class="js-vote-down-btn"
+                          data-controller="s-tooltip"
+                          data-s-tooltip-placement="right"
+                          title="This question does not show any research effort; it is unclear or not useful"
+                          aria-pressed="false"
+                          aria-label="Down vote"
+                          data-selected-classes="fc-theme-primary"
+                          data-unselected-classes="">
+                      <svg aria-hidden="true" class="svg-icon iconArrowDownLg" width="18" height="18" viewBox="0 0 19 10">
+                        <path d="M1 3h19L9 13 1 3Z"/></svg>
+                  </button>
+
+              </div>
+            </div>
+            <div class="col-10">
+              <div class="answer-text">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. A expedita harum numquam officiis voluptate. Amet debitis, facere natus nemo neque qui quibusdam reprehenderit vel?            </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+                  <label class="form-check-label" for="flexCheckDefault3">
+                    Correct!
+                  </label>
+                </div>
+            </div>
+
+          </div>
+        </div>
+
+
+          <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+
+
+          <hr>
+
+          <textarea class="form-control" aria-label="With textarea" placeholder="Enter your answer here..."></textarea>
+          <button>Answer</button>
+      </div>
+      <div class="col-4">
+        <h2>Popular Tags</h2>
+        <ul class="cloud" role="navigation" aria-label="Webdev tag cloud">
+          <li><a data-weight="4" href="/tag/http">HTTP</a></li>
+          <li><a data-weight="2" href="/tag/ember">Ember</a></li>
+          <li><a data-weight="5" href="/tag/sass">Sass</a></li>
+          <li><a data-weight="8" href="/tag/html">HTML</a></li>
+          <li><a data-weight="6" href="/tag/flexbox">FlexBox</a></li>
+          <li><a data-weight="4" href="/tag/api">API</a></li>
+          <li><a data-weight="5" href="/tag/vuejs">VueJS</a></li>
+          <li><a data-weight="6" href="/tag/grid">Grid</a></li>
+          <li><a data-weight="3" href="/tag/rest">Rest</a></li>
+          <li><a data-weight="9" href="/tag/javascript">JavaScript</a></li>
+          <li><a data-weight="3" href="/tag/animation">Animation</a></li>
+          <li><a data-weight="7" href="/tag/react">React</a></li>
+          <li><a data-weight="8" href="/tag/css">CSS</a></li>
+          <li><a data-weight="1" href="/tag/cache">Cache</a></li>
+          <li><a data-weight="3" href="/tag/less">Less</a></li>
+        </ul>
+        <h2>Best Members</h2>
+        <ul>
+          <li><a href="">Mr. Freeman</a></li>
+          <li><a href="">Dr. House</a></li>
+          <li><a href="">Bender</a></li>
+          <li><a href="">Queen Victoria</a></li>
+          <li><a href="">V. Pupkin</a></li>
+
+        </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</main>
+
+<footer class="footer mt-auto py-3 bg-dark"></footer>
+
+  </body>
+</html>
