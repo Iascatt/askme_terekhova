@@ -1,72 +1,7 @@
-<!doctype html>
-<html lang="en" class="h-100">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sticky Footer Navbar Template · Bootstrap v5.2</title>
+{% extends "inc/base.html" %}
 
+{% block content %}
 
-<link href="../static/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../static/css/style.css" rel="stylesheet">
-  </head>
-  <body class="d-flex flex-column h-100">
-
-<header>
-  <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">AskPupkin</a>
-      <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit" >ASK!</button>
-      </form>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-<!--
-      <div class="col-md-3 text-end align-content-md-end">
-        <button type="button" class="btn btn-outline-primary me-2">Login</button>
-        <button type="button" class="btn btn-primary">Sign-up</button>
-      </div>
- -->
-
-      <div class="userblock-authorized">
-          <div class="row">
-            <div class="col-4">
-              <div class="user-avatar">
-                <img src="../static/img/avatar-4.jfif" alt="avatar-4"/>
-              </div>
-            </div>
-
-            <div class="col-8">
-              <h6>Dr. Pepper</h6>
-              <div class="row">
-                <div class="col-6">
-                  <a href="">log out</a>
-                </div>
-                <div class="col-6">
-                  <a href="settings.html">settings</a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-    </div>
-  </nav>
-</header>
-
-<!-- Begin page content -->
-<main class="flex-shrink-0">
-
-  <div class="container">
-
-    <div class="row">
-      <div class="col-8">
   <main>
       <div class="col-md-7 col-lg-8">
         <form class="needs-validation" novalidate>
@@ -149,44 +84,4 @@
       </div>
   </main>
 
-      </div>
-      <div class="col-4">
-        <h2>Popular Tags</h2>
-        <ul class="cloud" role="navigation" aria-label="Webdev tag cloud">
-          <li><a data-weight="4" href="/tag/http">HTTP</a></li>
-          <li><a data-weight="2" href="/tag/ember">Ember</a></li>
-          <li><a data-weight="5" href="/tag/sass">Sass</a></li>
-          <li><a data-weight="8" href="/tag/html">HTML</a></li>
-          <li><a data-weight="6" href="/tag/flexbox">FlexBox</a></li>
-          <li><a data-weight="4" href="/tag/api">API</a></li>
-          <li><a data-weight="5" href="/tag/vuejs">VueJS</a></li>
-          <li><a data-weight="6" href="/tag/grid">Grid</a></li>
-          <li><a data-weight="3" href="/tag/rest">Rest</a></li>
-          <li><a data-weight="9" href="/tag/javascript">JavaScript</a></li>
-          <li><a data-weight="3" href="/tag/animation">Animation</a></li>
-          <li><a data-weight="7" href="/tag/react">React</a></li>
-          <li><a data-weight="8" href="/tag/css">CSS</a></li>
-          <li><a data-weight="1" href="/tag/cache">Cache</a></li>
-          <li><a data-weight="3" href="/tag/less">Less</a></li>
-        </ul>
-        <h2>Best Members</h2>
-        <ul>
-          <li><a href="">Mr. Freeman</a></li>
-          <li><a href="">Dr. House</a></li>
-          <li><a href="">Bender</a></li>
-          <li><a href="">Queen Victoria</a></li>
-          <li><a href="">V. Pupkin</a></li>
-
-        </ul>
-
-        </div>
-      </div>
-    </div>
-
-
-</main>
-
-<footer class="footer mt-auto py-3 bg-dark"></footer>
-
-  </body>
-</html>
+{% endblock %}
