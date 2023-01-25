@@ -1,55 +1,78 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 # Create your models here.
+LIKE = 1
+DISLIKE = -1
 
-QUESTIONS = [
-    {
-        'id': question_id,
-        'title': f'Question {question_id}',
-        'text': f'Text of question {question_id}',
-        'answers_number': question_id * question_id,
-        'tags': ['tag' for _ in range(question_id % 5)],
-        'avatar': "img/avatar-1.jfif"
-    } for question_id in range(100)
-]
+count = 10
+class QuestionManager(models.Manager):
+    def get_new(self):
+        return self.order_by('-date')[:count]
 
-ANSWERS = [
-    {
-        'id': answer_id,
-        'text': f'Text of answer {answer_id}',
-        'avatar': "img/avatar-2.jfif",
-        'rating': answer_id
-    } for answer_id in range(321)
-]
+    def get_hot(self):
+        return sorted(self.all(), key=lambda question: get_answers_count(question))[:count]
 
+    def get_by_tag(self, tag):
+        return self.filter(tag__exact=tag)
 
-class Tag(models.Model):
-    tag_name = models.CharField(max_length=30, unique=True)
+class AnswerManager(models.Manager):
+    def get_answers(self, question):
+        return self.filter(to_question__exact=question)
 
+    def get_answers_count(self, question):
+        return self.filter(question__exact=question).count()
 
-class Question(models.Model):
-    title = models.CharField(max_length=70)
-    text = models.CharField(max_length=300)
-    tags = models.ManyToManyField(Tag)
+class TagManager(models.Manager):
+    def get_top(self):
+        return self.order_by('-popularity')[:count]
+class RatingAnswerManager(models.Manager):
+    def get_answers_likes(self, answer):
+        return sum(self.filter(answer__exact=answer).rating[0])
 
 
-class Answer(models.Model):
-    to_question = models.ForeignKey(Question, models.CASCADE)
-    text = models.CharField(max_length=300)
-
+class RatingQuestionManager(models.Manager):
+    def get_questions_likes(self, question):
+        return sum(self.filter(question__exact=question).rating[0])
 
 class Profile(User):
     avatar = models.ImageField()
+    def __str__(self):
+        return f'{self.username}'
+
+class Tag(models.Model):
+    tag_name = models.CharField(max_length=30, unique=True)
+    objects = TagManager()
+    def __str__(self):
+        return f'{self.tag_name}'
 
 
-class Rating(models.Model):
+
+class Question(models.Model):
+    text = models.CharField(max_length=300)
+    date = models.DateField(blank=True, null=True)
+    author = models.ForeignKey(Profile, models.CASCADE)
+    title = models.CharField(max_length=70)
+    tags = models.ManyToManyField(Tag)
+    objects = QuestionManager()
+    def __str__(self):
+        return f'{self.title}'
+
+class Answer(models.Model):
+    text = models.CharField(max_length=300)
+    date = models.DateField(blank=True, null=True)
+    author = models.ForeignKey(Profile, models.CASCADE)
+    to_question = models.ForeignKey(Question, models.CASCADE)
+    objects = AnswerManager()
+
+
+class RatingAnswer(models.Model):
+
     user = models.ForeignKey(Profile, models.CASCADE)
-    rated = models.ForeignKey(Question, models.CASCADE)
-
-    LIKE = 1
-    DISLIKE = -1
+    rated = models.ForeignKey(Answer, models.CASCADE)
+    objects = RatingAnswerManager()
+    class Meta:
+        unique_together = ('user', 'rated')
 
     STATUSES = [
         (LIKE, 'like'),
@@ -59,3 +82,16 @@ class Rating(models.Model):
     rating = models.IntegerField(choices=STATUSES)
 
 
+class RatingQuestion(models.Model):
+    user = models.ForeignKey(Profile, models.CASCADE)
+    rated = models.ForeignKey(Question, models.CASCADE)
+    objects = RatingQuestionManager()
+    class Meta:
+        unique_together = ('user', 'rated')
+
+    STATUSES = [
+        (LIKE, 'like'),
+        (DISLIKE, 'dislike')
+    ]
+
+    rating = models.IntegerField(choices=STATUSES)

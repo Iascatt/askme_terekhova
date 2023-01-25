@@ -29,16 +29,20 @@ def paginate(objects_list, request, per_page=10):
 
 
 def index(request):
+    questions = models.Question.objects.get_new()
+    pag_context = paginate(questions, request, per_page=5)
 
-    questions = models.QUESTIONS
-    pag_context = paginate(questions, request, per_page=3)
+    for question in questions :
+        question.answers_count = models.Answer.objects.get_answers_count(question)
+        question.like_number = models.LikeQuestion.objects.get_questions_likes(question)
     context = {'questions': questions, 'mode': 'new'}
     context.update(pag_context)
+
     return render(request, "index.html", context=context)
 
 
 def hot(request):
-    questions = models.QUESTIONS
+    questions = models.Question.objects.get_hot()
     pag_context = paginate(questions, request, per_page=5)
     context = {'questions': questions, 'mode': 'hot'}
     context.update(pag_context)
@@ -51,11 +55,11 @@ def ask(request):
 
 def question(request, question_id: int):
     try:
-        question_item = models.QUESTIONS[question_id]
+        question_item = models.Question.objects.get(id=question_id)
     except IndexError:
         return HttpResponseNotFound("error 404 not found")
     else:
-        answers = models.ANSWERS
+        answers = models.Answer.objects.get_answers(question_item)
         context = {'question': question_item, 'answers': answers}
         pag_context = paginate(answers, request, per_page=3)
         context.update(pag_context)

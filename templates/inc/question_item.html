@@ -47,13 +47,13 @@
               </div>
               <div class="row">
                 <div class="col-5">
-                  <a href="{% url "question" question_id=question.id %}">answers({{ question.answers_number }})</a>
+                  <a href="{% url "question" question_id=question.id %}">answers({{ question.popularity }})</a>
                 </div>
                 <div class="col-7">
                   tags:
-                    {% for tag in question.tags %}
-                        <a href="{% url "tag" tag_name=tag %}">tag</a>
-                    {% endfor %}
+{#                    {% for tag in question.tags.all() %}#}
+{#                        <a href="{% url "tag" tag_name=tag %}">tag</a>#}
+{#                    {% endfor %}#}
                 </div>
               </div>
             </div>
