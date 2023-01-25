@@ -21,7 +21,7 @@ class AnswerManager(models.Manager):
         return self.filter(to_question__exact=question)
 
     def get_answers_count(self, question):
-        return self.filter(question__exact=question).count()
+        return self.filter(to_question__exact=question).count()
 
 class TagManager(models.Manager):
     def get_top(self):
