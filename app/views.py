@@ -34,7 +34,7 @@ def index(request):
 
     for question in questions :
         question.answers_count = models.Answer.objects.get_answers_count(question)
-        question.like_number = models.LikeQuestion.objects.get_questions_likes(question)
+        question.like_number = models.RatingQuestion.objects.get_questions_likes(question)
     context = {'questions': questions, 'mode': 'new'}
     context.update(pag_context)
 

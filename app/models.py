@@ -28,12 +28,13 @@ class TagManager(models.Manager):
         return self.order_by('-popularity')[:count]
 class RatingAnswerManager(models.Manager):
     def get_answers_likes(self, answer):
-        return sum(self.filter(answer__exact=answer).rating[0])
+        return sum(self.filter(rated__exact=answer).rating[0])
 
 
 class RatingQuestionManager(models.Manager):
     def get_questions_likes(self, question):
-        return sum(self.filter(question__exact=question).rating[0])
+        return sum(self.filter(rated__exact=question)
+, lambda x: x.rating[0])
 
 class Profile(User):
     avatar = models.ImageField()
